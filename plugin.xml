@@ -1,35 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-template" version="0.0.0">
-  <name>Template</name>
-  <description>Cordova Plugin Template</description>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-dashplay" version="0.0.0">
+  <name>DashPlayPlugin</name>
+  <description>Play dash video on ios device</description>
   <license>Apache 2.0</license>
-  <keywords>cordova, plugin, template</keywords>
+  <keywords>cordova, plugin, dash</keywords>
 
-  <js-module src="www/template.js" name="template">
-    <clobbers target="navigator.template" />
+  <js-module src="www/dashplay.js" name="template">
+    <clobbers target="DashPlay" />
   </js-module>
-
-  <!-- android -->
-  <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Template" >
-        <param name="android-package" value="cordova.plugin.Template"/>
-      </feature>
-    </config-file>
-
-    <source-file src="src/android/Template.java" target-dir="src/cordova/plugin" />
-  </platform>
 
   <!-- ios -->
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-      <feature name="Template">
-        <param name="ios-package" value="CPTemplate" />
+      <feature name="DashPlay">
+        <param name="ios-package" value="DashPlay" />
       </feature>
     </config-file>
-    <header-file src="src/ios/CPTemplate.h" />
-    <source-file src="src/ios/CPTemplate.m" />
+    <header-file src="src/ios/DashPlay.h" />
+    <source-file src="src/ios/DashPlay.m" />
+    <header-file src="src/ios/InterfaceView.h" />
+    <source-file src="src/ios/InterfaceView.m" />
+    <header-file src="src/ios/PlayerView.h" />
+    <source-file src="src/ios/PlayerView.m" />
+    <header-file src="src/ios/VBDisplayLayer.h" />
+    <header-file src="src/ios/VBPlayer.h" />
+    <source-file src="src/ios/VBPlayer.a" />
+
+    <framework src="src/ios/VBPlayer.a" custom="true" />
+    <framework src="Foundation.framework" />
+    <framework src="AVFoundation.framework" />
+    <framework src="VideoToolbox.framework" />
+    <framework src="CoreGraphics.framework" />
+    <framework src="CoreMedia.framework" />
   </platform>
 
 </plugin>
